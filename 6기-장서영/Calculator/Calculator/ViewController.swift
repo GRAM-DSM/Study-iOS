@@ -13,11 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     
     
-    var firstNum : Int = 0
-    var secondNum : Int = 0
-    var resultNum : Int = 0
-    var operat : String = ""
-    var remember : Int = 0
+    var firstNum : Int = 0 //입력되는 첫번째 숫자
+    var secondNum : Int = 0 //입력되는 두번째 숫자
+    var resultNum : Int = 0 //결과값
+    var operat : String = "" //연산자
+    var remember : Int = 0 //중간에 값을 담아둘 기억할 값
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numberButton(_ sender: UIButton) {
-        let digit = sender.currentTitle!//값을 받아서
+        let digit = sender.currentTitle!//값을 받아서 저장
         if let number = label.text  {
-            label.text = number + digit
+            label.text = number + digit //입력이 끝날 때까지 다음 숫자를 받는다.
         } else {
             label.text = digit
         }
