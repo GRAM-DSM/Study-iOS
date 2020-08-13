@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     var userIsInTheMiddleOfTyping: Bool = false // 입력 중일 때
-    var finalValue: Int = 0 // 결과 값
+    var finalValue: Double = 0 // 결과 값
     var currentValue1: Int = 0 // 중간 값1
     var currentValue2: Int = 0 // 중간 값2
     var method = 0 // 연산 종류
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func numberButton(_ sender: UIButton) {
@@ -53,18 +54,19 @@ class ViewController: UIViewController {
         
         switch operatorr {
         case "+":
-            finalValue = currentValue1 + currentValue2
+            finalValue = Double(currentValue1) + Double(currentValue2)
         case "-":
-            finalValue = currentValue1 - currentValue2
+            finalValue = Double(currentValue1) - Double(currentValue2)
         case "*":
-            finalValue = currentValue1 * currentValue2
+            finalValue = Double(currentValue1) * Double(currentValue2)
         case "/":
-            finalValue = currentValue1 / currentValue2
+            finalValue = Double(currentValue1) / Double(currentValue2)
         default:
             finalValue = 0
         }
         
         resultLabel.text = "\(finalValue)"
+        
     }
     
     @IBAction func operaterButton(_ sender: UIButton) {
@@ -81,3 +83,4 @@ class ViewController: UIViewController {
     }
     
 }
+// 아 귀찮다아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
