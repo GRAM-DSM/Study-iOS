@@ -34,3 +34,13 @@ enum MyError: Error {
    case error
 }
 
+let variable = Variable("f")
+variable.asObservable().subscribe { print("First: \($0)")}.addDisposableTo(bag)
+
+variable.value = "a"
+variable.value = "b"
+
+variable.asObservable().subscribe { print("second: \($0)")}.addDisposableTo(bag)
+
+variable.value = "c"
+variable.value = "d"
