@@ -34,4 +34,19 @@ enum MyError: Error {
    case error
 }
 
+let subject = ReplaySubject<String>.create(bufferSize: 2)
+
+subject.subscribe{print("first: \($0)")}.disposed(by: disposeBag)
+
+subject.onNext("x")
+
+subject.onNext("b")
+
+subject.subscribe{print("second: \($0)")}.disposed(by: disposeBag)
+
+subject.onNext("c")
+
+subject.onError(MyError.error)
+subject.onCompleted()
+
 
