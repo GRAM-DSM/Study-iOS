@@ -1,0 +1,19 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MasteringRxSwift' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MasteringRxSwift
+ pod 'RxSwift', '~> 5.0.0'
+  pod 'RxCocoa'
+pod 'NSObject+Rx'
+  pod 'RxSwiftExt'
+  pod 'Action'
+  pod 'RxDataSources'
+  pod "RxGesture"
+  pod 'RxReachability'
+  pod 'RxKeyboard'
+pod 'RxAlamofire'
+end
