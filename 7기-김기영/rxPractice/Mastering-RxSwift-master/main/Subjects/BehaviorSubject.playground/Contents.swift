@@ -22,6 +22,8 @@
 
 import UIKit
 import RxSwift
+import Foundation
+import RxCocoa
 
 
 
@@ -29,9 +31,27 @@ import RxSwift
  # BehaviorSubject
  */
 
-let disposeBag = DisposeBag()
-
 enum MyError: Error {
    case error
 }
+
+let disposeBag = DisposeBag()
+let subject = BehaviorSubject(value: "f")
+
+subject.subscribe {
+    print("1) \($0)")
+}.disposed(by: disposeBag)
+
+subject.onNext("a")
+
+subject.onNext("b")
+
+subject.subscribe {print("2) \($0)")}.disposed(by: disposeBag)
+
+subject.onNext("c")
+subject.onNext("d")
+
+subject.onCompleted()
+subject.onError(MyError.error)
+
 
