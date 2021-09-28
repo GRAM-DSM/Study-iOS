@@ -34,6 +34,10 @@ Observable.from(fruits)
    .subscribe { element in print(element) }
    .disposed(by: disposeBag)
 
+Observable.from([1, 2, 3])
+    .subscribe { element in print(element)}
+    .disposed(by: disposeBag)
+
 
 
 

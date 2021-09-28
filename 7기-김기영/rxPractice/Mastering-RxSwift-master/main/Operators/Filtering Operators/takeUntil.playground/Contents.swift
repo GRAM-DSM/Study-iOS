@@ -29,4 +29,16 @@ import RxSwift
 
 let disposeBag = DisposeBag()
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let sbj1 = PublishSubject<Int>()
+let sbj2 = PublishSubject<Int>()
 
+sbj1.takeUntil(sbj2)
+    .subscribe(onNext: {
+        print($0)
+    }).disposed(by: disposeBag)
+
+sbj1.onNext(2)
+sbj1.onNext(3)
+
+sbj2.onNext(4)
+sbj1.onNext(3)

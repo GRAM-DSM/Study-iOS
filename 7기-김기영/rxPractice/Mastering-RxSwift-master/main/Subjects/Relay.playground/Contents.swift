@@ -30,4 +30,17 @@ import RxCocoa
 
 let bag = DisposeBag()
 
+let subject = ReplaySubject<String>.create(bufferSize: 1)
+
+subject.subscribe { print("first: \($0)")}.addDisposableTo(bag)
+
+subject.onNext("a")
+subject.onNext("b")
+
+subject.subscribe { print("second: \($0)")}.addDisposableTo(bag)
+
+subject.onNext("c")
+subject.onNext("d")
+subject.onCompleted()
+
 

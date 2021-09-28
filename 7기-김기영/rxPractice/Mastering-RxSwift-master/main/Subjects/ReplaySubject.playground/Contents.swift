@@ -34,7 +34,7 @@ enum MyError: Error {
    case error
 }
 
-let subject = ReplaySubject<String>.create(bufferSize: 2)
+let subject = ReplaySubject<String>.create(bufferSize: 1)
 
 subject.subscribe{print("first: \($0)")}.disposed(by: disposeBag)
 

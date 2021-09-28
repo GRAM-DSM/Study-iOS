@@ -35,6 +35,7 @@ enum MyError: Error {
 }
 
 let variable = Variable("f")
+variable.value = "new"
 variable.asObservable().subscribe { print("First: \($0)")}.addDisposableTo(bag)
 
 variable.value = "a"

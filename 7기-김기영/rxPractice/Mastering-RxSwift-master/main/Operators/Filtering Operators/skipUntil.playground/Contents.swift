@@ -29,3 +29,16 @@ import RxSwift
 
 let disposeBag = DisposeBag()
 
+let subject = PublishSubject<String>()
+let subject1 = PublishSubject<String>()
+
+subject.skipUntil(subject1)
+    .subscribe(onNext: {
+        print($0)
+    })
+    .disposed(by: disposeBag)
+subject.onNext("X")
+subject.onNext("B")
+
+subject1.onNext("C")
+subject.onNext("D")
