@@ -26,5 +26,5 @@ import RxSwift
 /*:
  # sample
  */
-
 let disposeBag = DisposeBag()
+
